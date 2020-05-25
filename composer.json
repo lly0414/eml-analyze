@@ -1,0 +1,20 @@
+{
+    "name": "lly/eml-analyze",
+    "description": "eml file parsing",
+    "type": "lib",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lly",
+            "email": "1027583915@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "EmlResolve\\": "src/EmlResolve/"
+        },
+        "files": ["src/MailSo/MailSo.php"]
+    }
+}
