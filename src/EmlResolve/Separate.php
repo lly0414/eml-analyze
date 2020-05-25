@@ -141,14 +141,15 @@ class Separate
     }
 
     /*解析附件头部*/
-    public function analyzeAttachHeader($attachHeader)
+    public function analyzeAttachHeader($attachHeader, $attachContent)
     {
         $attachName = $attachHeader->ParameterValue(\MailSo\Mime\Enumerations\Header::CONTENT_TYPE,
             \MailSo\Mime\Enumerations\Parameter::NAME);
 
         return [
-            'attachName' => $attachName,
-            'attachType' => pathinfo($attachName, PATHINFO_EXTENSION)
+            'name' => $attachName,
+            'type' => pathinfo($attachName, PATHINFO_EXTENSION),
+            'size' => $this->analyzeAttachContent($attachContent)
         ];
     }
 
@@ -162,5 +163,7 @@ class Separate
         $mainBodyHtmlLength = strlen($mainBodyHtml);
         $mainBodyHtmlLength = intval( $mainBodyHtmlLength- ($mainBodyHtmlLength/8)*2);
         $mainBodyHtmlSize = number_format(($mainBodyHtmlLength/1024),2);
+
+        return $mainBodyHtmlSize;
     }
 }

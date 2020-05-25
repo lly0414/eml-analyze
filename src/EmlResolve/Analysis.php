@@ -219,7 +219,7 @@ class Analysis
                 $contentAlternativeBody = $emlAnalysisExamples->analyzeAlternativeBody($contentAlternativeBoundary, $contentHtmlStr);
                 $this->analyzeMainBody($contentAlternativeBody);
             } else {
-                $this->emlBodyAttach[] = $emlAnalysisExamples->analyzeAttachHeader($contentHeaderCollection);
+                $this->emlBodyAttach[] = $emlAnalysisExamples->analyzeAttachHeader($contentHeaderCollection, $contentHtmlStr);
             }
 
         }
