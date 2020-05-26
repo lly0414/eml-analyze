@@ -217,7 +217,7 @@ class Analysis
             } elseif ($contentType === \MailSo\Mime\Enumerations\MimeType::MULTIPART_ALTERNATIVE){
                 $contentAlternativeBoundary = $emlAnalysisExamples->analyzeBoundary($contentHeaderCollection);
                 $contentAlternativeBody = $emlAnalysisExamples->analyzeAlternativeBody($contentAlternativeBoundary, $contentHtmlStr);
-                $this->analyzeMainBody($contentAlternativeBody);
+                $this->analyzeMainBody($contentAlternativeBody, $emlAnalysisExamples);
             } else {
                 $this->emlBodyAttach[] = $emlAnalysisExamples->analyzeAttachHeader($contentHeaderCollection, $contentHtmlStr);
             }
